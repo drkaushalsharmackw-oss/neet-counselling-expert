@@ -1,1 +1,397 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEET Counselling Expert 2026</title><link rel="stylesheet" href="src/style.css"></head><body><div id="app"></div><script type="module" src="src/main.js"></script></body></html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEET Counselling Expert 2026</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f6f8fb;color:#14213d}
+header{position:sticky;top:0;background:white;border-bottom:1px solid #ddd;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:10}
+.logo{background:#14213d;color:white;padding:10px;border-radius:10px}
+nav{display:flex;gap:18px}
+nav a{text-decoration:none;color:#58657b}
+.btn{display:inline-block;background:#14213d;color:white;border:0;border-radius:10px;padding:12px 18px;font-weight:bold;text-decoration:none;cursor:pointer}
+.alt{background:white;color:#14213d;border:1px solid #ddd}
+
+.hero{max-width:1150px;margin:auto;padding:60px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,68px);line-height:1;letter-spacing:-3px}
+p{color:#68758b;line-height:1.6}
+.tag{color:#df673a;font-size:12px;font-weight:bold;letter-spacing:2px}
+
+.dash{background:#14213d;color:white;border-radius:22px;padding:30px}
+.dash b{color:#f2a080}
+
+section{max-width:1150px;margin:auto;padding:50px 5%}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card,.panel{background:white;border:1px solid #e2e7ee;border-radius:18px;padding:20px;margin:10px 0}
+
+.form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.form input,.form select,.search input{
+width:100%;padding:12px;margin-top:6px;
+border:1px solid #d7deea;border-radius:9px
+}
+
+.result{
+display:flex;justify-content:space-between;
+background:white;border:1px solid #e2e7ee;
+padding:15px;border-radius:12px;margin:8px 0
+}
+
+.table{overflow:auto;background:white;border:1px solid #e2e7ee;border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:600px}
+td,th{padding:13px;text-align:left;border-bottom:1px solid #eee}
+th{background:#f0f3f7}
+
+footer{background:#14213d;color:white;padding:35px 5%}
+footer p{color:#b8c2d2}
+
+@media(max-width:800px){
+nav{display:none}
+.hero{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr 1fr}
+.form{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:520px){
+.grid,.two,.form{grid-template-columns:1fr}
+.hero,section{padding-left:16px;padding-right:16px}
+.result{display:block}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<b>
+<span class="logo">NE</span>
+NEET Counselling
+<small>EXPERT 2026</small>
+</b>
+
+<nav>
+<a href="#predictor">Predictor</a>
+<a href="#cutoffs">Cutoffs</a>
+<a href="#colleges">Colleges</a>
+<a href="#tools">Tools</a>
+</nav>
+
+<button class="btn alt" onclick="alert('Login module will be added next')">
+Login
+</button>
+</header>
+
+<div class="hero">
+
+<div>
+<span class="tag">NEET UG COUNSELLING • 2026</span>
+
+<h1>Your counselling decisions, made smarter.</h1>
+
+<p>
+College Predictor, Cutoff Analysis, College Explorer
+and Preference List tools — all in one place.
+</p>
+
+<a class="btn" href="#predictor">
+Start College Predictor →
+</a>
+</div>
+
+<div class="dash">
+<b>COUNSELLING DASHBOARD</b>
+
+<h1>2026</h1>
+
+<p>✓ College Predictor</p>
+<p>✓ Cutoff Analysis</p>
+<p>✓ College Explorer</p>
+<p>✓ Preference List</p>
+<p>✓ Counselling Updates</p>
+</div>
+
+</div>
+
+<section>
+
+<span class="tag">SMART TOOLS</span>
+
+<h2>Everything for NEET counselling</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>🎯 College Predictor</h3>
+<p>Explore colleges using your NEET rank.</p>
+</div>
+
+<div class="card">
+<h3>📊 Cutoff Analysis</h3>
+<p>Compare previous closing ranks.</p>
+</div>
+
+<div class="card">
+<h3>🏥 College Explorer</h3>
+<p>Search medical colleges by state.</p>
+</div>
+
+<div class="card">
+<h3>📝 Preference List</h3>
+<p>Organise your counselling choices.</p>
+</div>
+
+</div>
+</section>
+
+<section id="predictor">
+
+<span class="tag">COLLEGE PREDICTOR</span>
+
+<h2>Find matching colleges</h2>
+
+<p>Enter your NEET rank to explore matching colleges.</p>
+
+<div class="panel form">
+
+<label>
+NEET AIR
+<input id="rank" type="number" placeholder="e.g. 2500">
+</label>
+
+<label>
+Category
+<select>
+<option>General</option>
+<option>OBC</option>
+<option>SC</option>
+<option>ST</option>
+<option>EWS</option>
+</select>
+</label>
+
+<label>
+State
+<select id="state">
+<option>Any State</option>
+<option>Rajasthan</option>
+<option>Delhi</option>
+</select>
+</label>
+
+<label>
+Quota
+<select>
+<option>AIQ</option>
+<option>State Quota</option>
+</select>
+</label>
+
+<button class="btn" onclick="predict()">
+Predict
+</button>
+
+</div>
+
+<div id="results"></div>
+
+</section>
+
+<section id="cutoffs">
+
+<span class="tag">CUTOFF ANALYSIS</span>
+
+<h2>Previous Closing Ranks</h2>
+
+<div class="table">
+
+<table>
+
+<thead>
+<tr>
+<th>College</th>
+<th>State</th>
+<th>Type</th>
+<th>Closing Rank</th>
+</tr>
+</thead>
+
+<tbody id="rows"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="colleges">
+
+<span class="tag">COLLEGE EXPLORER</span>
+
+<h2>Search Medical Colleges</h2>
+
+<div class="search">
+
+<input
+id="search"
+placeholder="Search college or state..."
+oninput="render()">
+
+</div>
+
+<div id="list" class="two"></div>
+
+</section>
+
+<section id="tools">
+
+<span class="tag">COUNSELLING HUB</span>
+
+<h2>More Tools</h2>
+
+<div class="two">
+
+<div class="card">
+
+<h3>📝 Preference List Generator</h3>
+
+<p>
+Build and arrange your college choices.
+</p>
+
+<button class="btn"
+onclick="alert('Preference List module will be added next')">
+Open
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🔔 Counselling Notifications</h3>
+
+<p>
+MCC and State counselling updates will be organised here.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<b>NEET Counselling Expert 2026</b>
+
+<p>
+Always verify eligibility, seat matrix, deadlines
+and official notices before making counselling choices.
+</p>
+
+</footer>
+
+<script>
+
+const colleges = [
+
+["AIIMS New Delhi","Delhi","Government",57],
+
+["SMS Medical College Jaipur","Rajasthan","Government",850],
+
+["Dr SN Medical College Jodhpur","Rajasthan","Government",2600],
+
+["RNT Medical College Udaipur","Rajasthan","Government",3200],
+
+["JLN Medical College Ajmer","Rajasthan","Government",4100],
+
+["GMC Kota","Rajasthan","Government",4700]
+
+];
+
+function render(){
+
+let q=(document.getElementById("search").value||"").toLowerCase();
+
+document.getElementById("list").innerHTML=
+
+colleges
+.filter(x=>(x[0]+" "+x[1]).toLowerCase().includes(q))
+.map(x=>`
+
+<div class="card">
+
+<b>${x[0]}</b>
+
+<p>${x[1]} • ${x[2]}</p>
+
+<b>Closing Rank: ${x[3]}</b>
+
+</div>
+
+`).join("");
+
+}
+
+function predict(){
+
+let rank=Number(document.getElementById("rank").value);
+
+let state=document.getElementById("state").value;
+
+let results=colleges.filter(x=>
+
+(state==="Any State" || x[1]===state) &&
+(!rank || rank<=x[3]*1.7)
+
+);
+
+document.getElementById("results").innerHTML=
+
+results.length ?
+
+results.map(x=>`
+
+<div class="result">
+
+<b>${x[0]}</b>
+
+<span>
+${x[1]} • Closing Rank ${x[3]}
+</span>
+
+</div>
+
+`).join("")
+
+:
+
+`<div class="card">
+No matching college found. Try a broader search.
+</div>`;
+
+}
+
+document.getElementById("rows").innerHTML=
+
+colleges.map(x=>`
+
+<tr>
+
+<td>${x[0]}</td>
+<td>${x[1]}</td>
+<td>${x[2]}</td>
+<td>${x[3]}</td>
+
+</tr>
+
+`).join("");
+
+render();
+
+</script>
+
+</body>
+</html>
